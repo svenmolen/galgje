@@ -1,20 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel= "stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css" />
     <script src="scripts.js" defer></script>
-
-</head>
-<body>
-    <h1>Galgje</h1>
-    <div id='random woord'></div>
-   <div>
-       <input type ='text' id='inputfield'>
-       <input type ='button' value= 'voeg toe' id='submit'>
-       <div id='outputtext'></div>
-   </div>
-</body>
+  </head>
+  <body>
+    <div id="galgje" class="game">
+      <h1>Galgje</h1>
+            <div id='galg'class='galg'></div>
+            <p id='beurten' class="feedbacktext"></p>
+      <div class="raadwoord" id="random woord"></div>
+      <div>
+        <input class="netjes" type="text" id="inputfield" />
+        <input class="netjes" type="button" value="voeg toe" id="submit" />
+        <div class="feedbacktext" id="outputtext"></div>
+        <button type="button" id='button' class="hidden"> Nog een Potje?</button>
+      </div>
+    </div>
+  </body>
 </html>

@@ -1,7 +1,8 @@
 //constanten
-const woord = "assss";
+const woord = pickWord();
 const alphabet = Array.from("abcdefghijklmnopqrstuvwxyz");
 const feedback = document.getElementById("outputtext")
+let bijnaAf = 0;
 
 //woord naar Array, zichtbaar in html
 const woord2 = Array.from(woord);
@@ -11,7 +12,7 @@ for (const letter in woord2) {
 }
 showRandomWord(wordGuess);
 
-//Letter invoeren, checken op validiteit
+//Letter invoeren, speelronde
 document.getElementById("submit").addEventListener("click", speelRonde);
 
 function speelRonde(){
@@ -20,6 +21,8 @@ function speelRonde(){
     if (validLetter == true){
         letterIncludes(letter);
     }
+    checkForWin(wordGuess);
+    checkForLoose();
 }
 
 
@@ -51,10 +54,14 @@ function letterIncludes(letter) {
     for (const ltr of letterInWord) {
       wordGuess.splice(ltr, 1, letter);
     }
-    console.log(letterInWord);
-    console.log(wordGuess);
     showRandomWord(wordGuess);
-    checkForWin(wordGuess);
+  }
+    
+  else {
+      bijnaAf = bijnaAf + 1; 
+      let aantalBeurten = 6-bijnaAf;
+    document.getElementById('beurten').innerHTML = `je hebt nog ${aantalBeurten} beurten over`;
+    
   }
 }
 
@@ -70,9 +77,20 @@ function checkForWin(word){
         console.log(textOutputWin);
                feedback.innerHTML = textOutputWin;
                console.log(feedback.innerHTML);
+               document.getElementById('galgje').setAttribute("class","gamewin");
+               anotherGame();
     }
 }
 
+//controleer of je verloren hebt
+function checkForLoose(){
+  if (bijnaAf===6){
+    feedback.innerHTML='Helaas, je hebt verloren';
+    document.getElementById('galgje').setAttribute("class","gamelos");
+    anotherGame();
+    return
+  }
+}
 
 
 //function to show all indexes where the letter is found
@@ -81,4 +99,22 @@ function getAllIndexes(arr, val) {
     i;
   for (i = 0; i < arr.length; i++) if (arr[i] === val) indexes.push(i);
   return indexes;
+}
+
+function pickWord(){
+const randomWoordenLijst =["samenscholing","waterviool",'vreugde','schikking','inrichten','afstandsbediening','heldhaftig','werksfeer','sopraan','achteloos','camperen',
+'snoek','politie','identificatienummer','radicalisering','huwelijksnacht','historicus', 'dromedarissen']
+const index = Math.round(Math.random()*20);
+const newWord = randomWoordenLijst[index]
+return newWord;
+}
+
+function anotherGame(){
+  document.getElementById('button').setAttribute("class","visible")
+}
+
+document.getElementById("button").addEventListener("click", opnieuw);
+
+function opnieuw(){
+  location.reload();
 }

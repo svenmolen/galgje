@@ -1,3 +1,65 @@
 body{
-    background-color: blue;
+    background-color: aliceblue;
+}
+
+.game{
+    background-color: azure;
+    padding: 5em 5em 10em 20em;
+    border-style: solid;
+    border-width:9px ;
+    border-color:aquamarine;
+    border-radius: 30px;
+    width:50%
+}
+
+
+.gamewin{
+    border-color: green;
+    border-width:20px;
+    background-color: Greenyellow;
+    padding: 5em 5em 10em 20em;
+    border-style: solid;    
+    border-radius: 40px;
+    width:50%
+}
+
+.gamelos{
+    background-color: Lightcoral;
+    padding: 5em 5em 10em 20em;
+    border-style: solid;
+    border-width:20px ;
+    border-color: darkred;
+    border-radius: 40px;
+    width:50%
+}
+
+
+.netjes{
+    padding-top:1em;
+}
+
+.raadwoord{
+    font-size:200%;
+    padding-top: 1em;
+    padding-bottom: 2em;
+
+
+}
+
+.feedbacktext{
+    font-size: 150%;
+    padding-top:1em;
+   }
+
+.galg{
+    height:10em;
+    width:10em;
+    border-bottom:solid darkred 8px;
+}
+
+.hidden{
+    visibility: hidden;
+}
+.visible{
+    visibility: visible;
 }
